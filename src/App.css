@@ -1,5 +1,14 @@
+*{
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
+  background-image: linear-gradient(rgba(0, 255, 200, 0),rgba(0, 255, 255, 0.61));  height: 100vh;
+}
+.ABC {
+  background: rgba(255,255,255,0.5);
+  padding: 40px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .App-logo {
@@ -21,6 +30,37 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 24px;
+}
+
+.text-input {
+position:absolute;
+bottom:0;
+height:40px;
+width:100%;
+border-top:1px solid white;
+}
+
+.text-input input{
+  width: 60%;
+  height: 100%;
+  font-size: 24px;
+}
+
+.text-input button{
+  width: 40%;
+  height: 100%;
+  border-radius: 20px;
+  cursor:pointer;
+}
+
+.text-input button:hover{
+  background: teal;
+  color: white;
 }
 
 @keyframes App-logo-spin {
