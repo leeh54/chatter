@@ -71,6 +71,31 @@
   background: aqua;
 }
 
+.talk-bubble {
+  display: flex;
+  justify-content: center;
+  left: 4%;
+  width: 300px;
+  margin: 540px auto;
+  border:4px solid white;
+  padding: 20px;
+  color: #fff;
+  position:fixed;
+  border-radius: 15px;
+}
+
+.talk-bubble:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid white;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  left: -20px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

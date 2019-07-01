@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo5.png';
 import TextInput from './TestInput';
+import TalkBubble from './TalkBubble';
+
 import './App.css';
 function App() {
   return (
@@ -9,6 +11,7 @@ function App() {
         Chats
         <img src={logo} className="logo" alt="" />
       </header>
+      <TalkBubble/>
       <TextInput/>
     </div>
   );
