@@ -3,29 +3,27 @@
 }
 .App {
   text-align: center;
-  background-image: linear-gradient(rgba(0, 255, 200, 0),rgba(0, 255, 255, 0.61));  height: 100vh;
+  height: 100vh;
+  background-image: linear-gradient(to right, rgba(40, 207, 207, 0.719),rgb(60, 76, 218));
 }
-.ABC {
-  background: rgba(255,255,255,0.5);
-  padding: 40px;
-  font-family: 'Courier New', Courier, monospace;
+.App-header {
+  background: rgba(255, 255, 255,0.5);
+  border-block-end: solid;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -33,34 +31,44 @@
 }
 
 .logo {
-  height: 40px;
-  margin-right: 24px;
+  height: 10vmin;
 }
 
 .text-input {
-position:absolute;
-bottom:0;
-height:40px;
-width:100%;
-border-top:1px solid white;
+  background: rgba(255, 255, 255,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom:0;
+  min-height:10vh;
+  width:100%;
+  position:fixed;
 }
 
 .text-input input{
-  width: 60%;
-  height: 100%;
-  font-size: 24px;
+  background:black;
+  color:white;
+  position:absolute;
+  width: 94%;
+  height: 30px;
+  font-size: 18px;
+  border-radius: 15px;
+  border: 1px solid white
 }
 
 .text-input button{
-  width: 40%;
-  height: 100%;
-  border-radius: 20px;
+  position:absolute;
+  right: 3%;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
   cursor:pointer;
+  font-size: 14px;
+  border: 1px solid white
 }
 
 .text-input button:hover{
-  background: teal;
-  color: white;
+  background: aqua;
 }
 
 @keyframes App-logo-spin {
