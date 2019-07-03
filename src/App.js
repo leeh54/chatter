@@ -13,7 +13,7 @@ class App extends React.Component {
   }
 
   sendMessage = (m) => {
-    var messages = [...this.state.messages, m]
+    var messages = [m,...this.state.messages,]
     this.setState({ messages })
   }
 

@@ -94,6 +94,8 @@
 .messages {
   height: calc(100% - 156px);
   overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .bubble-wrap {
