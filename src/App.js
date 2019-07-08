@@ -12,6 +12,13 @@ class App extends React.Component {
     editName: false,
   }
 
+  componentWillMount(){
+    var name = localStorage.getItem('name')
+    if(name){
+      this.setState({name})
+    }
+  }
+
   sendMessage = (m) => {
     const message = {
       text: m,
@@ -21,8 +28,15 @@ class App extends React.Component {
     this.setState({ messages: newMessagesArray })
   }
 
+  setEditName = (editName) => {
+    if(!editName){
+      localStorage.setItem('name', this.state.name)
+    }
+    this.setState({editName})
+  }
+
   render() {
-    var { messages } = this.state
+    var { messages, name } = this.state
     return (
       <div className="App">
         <header className="App-header">
@@ -34,16 +48,17 @@ class App extends React.Component {
             name={this.state.name}
             editName={this.state.editName}
             changeName={name => this.setState({ name })}
-            setEditName={editName => this.setState({ editName })}
+            setEditName={this.setEditName}
           />
         </header>
         <main className="messages">
           {
             messages.map((m, i) => {
-              return <div key={i} className="message-box">
-                <div className="from">
+              return <div key={i} className="message-box" from={m.from === name ? "me" : "you"}
+              >
+                {m.from!==name && <div className="from">
                   <span>{m.from}</span>
-                </div>
+                </div>}
                 <div className="bubble-wrap">
                   <div className="bubble">
                     <span>{m.text}</span>
