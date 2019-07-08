@@ -13,12 +13,15 @@ class App extends React.Component {
   }
 
   sendMessage = (m) => {
-    var messages = [m,...this.state.messages,]
-    this.setState({ messages })
+    const message = {
+      text: m,
+      from: this.state.name
+    }
+    var newMessagesArray = [message, ...this.state.messages,]
+    this.setState({ messages: newMessagesArray })
   }
 
   render() {
-    /* console.log(this.state.messages); */
     var { messages } = this.state
     return (
       <div className="App">
@@ -27,14 +30,24 @@ class App extends React.Component {
             <img src={logo} className="logo" alt="" />
             Chats
         </div>
-          <NamePicker />
+          <NamePicker
+            name={this.state.name}
+            editName={this.state.editName}
+            changeName={name => this.setState({ name })}
+            setEditName={editName => this.setState({ editName })}
+          />
         </header>
         <main className="messages">
           {
             messages.map((m, i) => {
-              return <div key={i} className="bubble-wrap">
-                <div className="bubble">
-                  <span>{m}</span>
+              return <div key={i} className="message-box">
+                <div className="from">
+                  <span>{m.from}</span>
+                </div>
+                <div className="bubble-wrap">
+                  <div className="bubble">
+                    <span>{m.text}</span>
+                  </div>
                 </div>
               </div>
             })
