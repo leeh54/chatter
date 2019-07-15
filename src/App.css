@@ -43,15 +43,14 @@
 .text-input {
   background: rgba(255, 255, 255,0.5);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
   bottom:0;
   min-height:10vh;
-  width:100%;
-  position:fixed;
+  width: 100%;
+  position:absolute;
   border-block-start: solid;
   color: white;
-
 }
 
 .text-input > input{
@@ -59,25 +58,24 @@
   background:black;
   color:white;
   position:absolute;
-  width: 94%;
+  width: 86%;
   height: 30px;
   font-size: 18px;
   border-radius: 15px;
-  border: 1px solid white
+  border: 1px solid white;
+  right: 3%;
 }
 
 .text-input > button{
   position:absolute;
   display: flex;
-  align-content: center;
-  justify-content: center;
   right: 3%;
   width: 30px;
   height: 30px;
   border-radius: 15px;
   cursor:pointer;
   font-size: 14px;
-  border: 1px solid white
+  border: 1px solid white;
 }
 
 .text-input button:hover{
@@ -96,18 +94,19 @@
   overflow: auto;
   display: flex;
   flex-direction: column-reverse;
+  padding-top: 10px;
 }
 
 .bubble-wrap {
   padding: 6px;
   display: flex;
+  position: relative;
   padding-left: 3%;
 }
 
 .message-box {
-  display: flex;
-  flex-direction: column;
   padding: 6px;
+  align-items: center;
 }
 
 .bubble {
@@ -135,6 +134,7 @@
   display: flex;
   align-items: center;
 }
+
 .name-button{
   height:29px;
   margin:0 6px;
@@ -173,6 +173,12 @@
 }
 
 .message-box[from="me"] {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 3%;
+}
+
+.message-box[from="me"].bubble-wrap {
   display: flex;
   flex-direction: row-reverse;
   padding-right: 3%;

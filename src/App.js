@@ -9,11 +9,14 @@ import * as firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/storage";
 
+import Camera from 'react-snap-pic'
+
 class App extends React.Component {
   state = {
     messages: [],
     name: '',
     editName: false,
+    showCamera: false
   }
 
   componentWillMount() {
@@ -24,10 +27,10 @@ class App extends React.Component {
 
     /* <=========================> */
     firebase.initializeApp({
-      apiKey: "AIzaSyBAJVwrP5J4AhVKd5ijYtcTF9XMV6tIcY4",
-      authDomain: "msgr-2.firebaseapp.com",
-      projectId: "msgr-2",
-      storageBucket: "msgr-2.appspot.com",
+      apiKey: "AIzaSyC6kqtO0mZH6ASGWg4ec_ijAU7DUK7_Kpc",
+      authDomain: "hcde438.firebaseapp.com",
+      projectId: "hcde438",
+      storageBucket: "hcde438.appspot.com",
     });
 
     this.db = firebase.firestore();
@@ -75,6 +78,11 @@ class App extends React.Component {
     this.setState({ editName })
   }
 
+  takePicture = (img) => {
+    console.log(img)
+    this.setState({ showCamera: false })
+  }
+
   render() {
     var { messages, name } = this.state
     return (
@@ -94,23 +102,30 @@ class App extends React.Component {
         <main className="messages">
           {
             messages.map((m, i) => {
-              return <div key={i} className="message-box" from={m.from === name ? "me" : "you"}
-              >
-                {m.from !== name && <div className="from">
-                  <span>{m.from}</span>
-                </div>}
-                <div className="bubble-wrap">
-                  <div className="bubble">
-                    <span>{m.text}</span>
-                  </div>
-                </div>
-              </div>
+              return (<Message key={i} m={m} name={name} />)
             })
           }
         </main>
-        <TextInput sendMessage={text=> this.send({text})} />
+        {this.state.showCamera && <Camera takePicture={this.takePicture} />}
+        <TextInput sendMessage={text => this.send({ text })}
+          showCamera={() => this.setState({ showCamera: true })} />
       </div>
     );
   }
 }
 export default App;
+
+function Message(props) {
+  var { m, name } = props
+  return (<div className="message-box" from={m.from === name ? "me" : "you"}
+  >
+    {m.from !== name && <div className="from">
+      <span>{m.from}</span>
+    </div>}
+    <div className="bubble-wrap">
+      <div className="bubble">
+        <span>{m.text}</span>
+      </div>
+    </div>
+  </div>)
+}
